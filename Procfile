@@ -1,1 +1,1 @@
-web: gunicorn predictions.wsgi --log-file -
+web: gunicorn predictDisease.wsgi --log-file -

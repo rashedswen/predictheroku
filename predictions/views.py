@@ -5,6 +5,7 @@ from predictions.disease_prediction_notebook import predicted_disease
 from predictions.serializer import PredictionSerializer
 from rest_framework.response import Response
 from rest_framework import status
+import requests
 
 
 # Create your views here.
@@ -20,3 +21,11 @@ def get_disease(request):
             return Response({"disease": disease}, status=status.HTTP_200_OK)
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['GET'])
+def test_auth(request):
+    if request.method == 'GET':
+        s = requests.post("https://api.twitter.com/oauth/request_token")
+        Response(s, status.HTTP_200_OK)
+
+

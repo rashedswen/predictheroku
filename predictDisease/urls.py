@@ -16,9 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from predictions.views import get_disease
+from predictions.views import get_disease, test_auth
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('get_disease/', get_disease),
+    path('test_auth/', test_auth),
 ]
